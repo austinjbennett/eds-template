@@ -27,6 +27,36 @@
           "component": "text",
           "name": "imageAlt",
           "label": "Alt Text"
+        },
+        {
+            "component": "text",
+            "name": "imageTitle",
+            "label": "Title"
+        },
+        {
+          "component": "text",
+          "name": "imageLink",
+          "label": "Link"
+        },
+        {
+          "component": "select",
+          "name": "imageLinkTarget",
+          "label": "Link Target",
+          "options": [
+            {
+              "name": "Same Window",
+              "value": "_self"
+            },
+            {
+              "name": "New Window",
+              "value": "_blank"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "extraText",
+          "label": "Extra Text"
         }
       ]
     }
