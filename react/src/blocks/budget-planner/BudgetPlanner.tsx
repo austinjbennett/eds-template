@@ -9,6 +9,8 @@ export type Channel = {
 };
 
 type BudgetPlannerProps = {
+  title?: string;
+  description?: string;
   initialChannels: Channel[];
   averageDealValue: number;
 };
@@ -52,7 +54,12 @@ function calculateTotals(channels: Channel[], averageDealValue: number): Totals 
   };
 }
 
-export function BudgetPlanner({ initialChannels, averageDealValue }: BudgetPlannerProps) {
+export function BudgetPlanner({
+  title = 'Budget Planner',
+  description = 'Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time.',
+  initialChannels,
+  averageDealValue,
+}: BudgetPlannerProps) {
   const [channels, setChannels] = useState<Channel[]>(initialChannels);
   const [dealValue, setDealValue] = useState<number>(averageDealValue);
 
@@ -74,8 +81,8 @@ export function BudgetPlanner({ initialChannels, averageDealValue }: BudgetPlann
   return (
     <section className="budget-planner" aria-label="Marketing budget planner">
       <header className="budget-planner__header">
-        <h2>Budget Planner</h2>
-        <p>Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time.</p>
+        <h2>{title}</h2>
+        <p>{description}</p>
       </header>
 
       <div className="budget-planner__deal-value">

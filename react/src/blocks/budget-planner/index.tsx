@@ -1,6 +1,5 @@
 import { createRoot, type Root } from 'react-dom/client';
 import { BudgetPlanner, type Channel } from './BudgetPlanner';
-import './budget-planner.css';
 
 const roots = new WeakMap<Element, Root>();
 
@@ -29,6 +28,8 @@ const DEFAULT_CHANNELS: Channel[] = [
 ];
 
 type MountOptions = {
+  title?: string;
+  description?: string;
   averageDealValue?: number;
   initialChannels?: Channel[];
 };
@@ -42,6 +43,8 @@ export function mount(target: Element, options: MountOptions = {}): void {
 
   root.render(
     <BudgetPlanner
+      title={options.title ?? 'Budget Planner'}
+      description={options.description ?? 'Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time.'}
       averageDealValue={options.averageDealValue ?? 18000}
       initialChannels={options.initialChannels ?? DEFAULT_CHANNELS}
     />,
@@ -58,4 +61,3 @@ export function unmount(target: Element): void {
   root.unmount();
   roots.delete(target);
 }
-

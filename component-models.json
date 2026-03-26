@@ -171,10 +171,108 @@
     "fields": [
       {
         "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": "Budget Planner"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "value": "Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time."
+      },
+      {
+        "component": "text",
         "valueType": "number",
         "name": "averageDealValue",
         "label": "Average Deal Value",
         "value": "18000"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "channel1Name",
+        "label": "Channel 1 Name",
+        "value": "Paid Search"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel1Budget",
+        "label": "Channel 1 Budget",
+        "value": "14000"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel1Cpl",
+        "label": "Channel 1 Cost Per Lead",
+        "value": "120"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel1ConversionRate",
+        "label": "Channel 1 Conversion Rate %",
+        "value": "12"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "channel2Name",
+        "label": "Channel 2 Name",
+        "value": "LinkedIn Ads"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel2Budget",
+        "label": "Channel 2 Budget",
+        "value": "10000"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel2Cpl",
+        "label": "Channel 2 Cost Per Lead",
+        "value": "165"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel2ConversionRate",
+        "label": "Channel 2 Conversion Rate %",
+        "value": "10"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "channel3Name",
+        "label": "Channel 3 Name",
+        "value": "Webinars"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel3Budget",
+        "label": "Channel 3 Budget",
+        "value": "7000"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel3Cpl",
+        "label": "Channel 3 Cost Per Lead",
+        "value": "95"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "channel3ConversionRate",
+        "label": "Channel 3 Conversion Rate %",
+        "value": "16"
       }
     ]
   },
