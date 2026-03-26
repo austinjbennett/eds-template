@@ -52,11 +52,6 @@
               "value": "_blank"
             }
           ]
-        },
-        {
-          "component": "text",
-          "name": "extraText",
-          "label": "Extra Text"
         }
       ]
     }
