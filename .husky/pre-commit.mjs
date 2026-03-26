@@ -12,9 +12,17 @@ const changeset = await run('git diff --cached --name-only --diff-filter=ACMR');
 const modifiedFiles = changeset.split('\n').filter(Boolean);
 
 // check if there are any model files staged
-const modifledPartials = modifiedFiles.filter((file) => file.match(/(^|\/)_.*.json/));
-if (modifledPartials.length > 0) {
+const modifiedPartials = modifiedFiles.filter((file) => file.match(/(^|\/)_.*.json/));
+if (modifiedPartials.length > 0) {
   const output = await run('npm run build:json --silent');
   console.log(output);
   await run('git add component-models.json component-definition.json component-filters.json');
+}
+
+// rebuild committed React artifacts if any React source/config files were staged
+const modifiedReactFiles = modifiedFiles.filter((file) => /^react\/(?!dist\/|node_modules\/).+/.test(file));
+if (modifiedReactFiles.length > 0) {
+    const output = await run("npm run react:build --silent");
+    if (output.trim()) console.log(output);
+    await run("git add -A react/dist");
 }

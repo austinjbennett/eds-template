@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    rollupOptions: {
+    rolldownOptions: {
       input: {
         // Key name maps to dist/budget-planner/budget-planner.js
         'budget-planner/budget-planner': resolve(__dirname, 'src/blocks/budget-planner/index.tsx'),
