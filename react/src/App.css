@@ -1,0 +1,16 @@
+.app-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 16px 36px;
+  display: grid;
+  gap: 16px;
+}
+
+.app-shell h1 {
+  margin: 0;
+}
+
+.app-shell p {
+  margin: 0;
+  color: #4b5563;
+}

@@ -1,0 +1,118 @@
+.budget-planner {
+  --panel: #fff;
+  --border: #d9d9de;
+  --text: #22222a;
+  --muted: #5f6170;
+  --accent: #4f46e5;
+
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.budget-planner__header h2 {
+  margin: 0;
+}
+
+.budget-planner__header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
+.budget-planner__deal-value {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+  max-width: 260px;
+}
+
+.budget-planner__deal-value input,
+.budget-planner__field-grid input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.budget-planner__channels {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.budget-planner__channel-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  background: #fcfcff;
+}
+
+.budget-planner__channel-card h3 {
+  margin: 0 0 10px;
+}
+
+.budget-planner__field {
+  display: grid;
+  gap: 8px;
+}
+
+.budget-planner__field output {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.budget-planner__field-grid {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.budget-planner__field-grid div {
+  display: grid;
+  gap: 6px;
+}
+
+.budget-planner__metrics {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.budget-planner__summary {
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.budget-planner__summary div {
+  background: #f5f6ff;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.budget-planner__summary dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.budget-planner__summary dd {
+  margin: 6px 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.budget-planner__summary .is-positive {
+  color: #0f766e;
+}
+
+.budget-planner__summary .is-negative {
+  color: #b91c1c;
+}
+

@@ -4,6 +4,9 @@
   "version": "1.3.0",
   "description": "Starter project for Adobe Helix",
   "scripts": {
+    "react:dev": "cd react && pnpm dev",
+    "react:build": "cd react && pnpm build",
+    "react:preview": "cd react && pnpm preview",
     "lint:js": "eslint . --ext .json,.js,.mjs",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",

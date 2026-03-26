@@ -172,6 +172,18 @@
     ]
   },
   {
+    "id": "budget-planner",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "averageDealValue",
+        "label": "Average Deal Value",
+        "value": "18000"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
