@@ -18,9 +18,9 @@ jobs:
       with:
         node-version: 24
     - run: npm ci
-    - run: npm run lint
     - name: Install React dependencies
       working-directory: react
       run: pnpm install
+    - run: npm run lint
     - name: Build React blocks
       run: npm run react:build
