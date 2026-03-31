@@ -23,77 +23,77 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "title",
+          "name": "textContent_title",
           "label": "Title",
           "value": "Lead Funnel Simulator"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "description",
+          "name": "textContent_description",
           "label": "Description",
           "value": "Model conversion rates and compare optimization scenarios in real time."
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "monthlyTraffic",
+          "name": "componentConfig_monthlyTraffic",
           "label": "Monthly Traffic",
           "value": "50000"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "visitorToLeadRate",
+          "name": "componentConfig_visitorToLeadRate",
           "label": "Visitor to Lead Rate %",
           "value": "2.8"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "leadToMqlRate",
+          "name": "componentConfig_leadToMqlRate",
           "label": "Lead to MQL Rate %",
           "value": "38"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "mqlToSqlRate",
+          "name": "componentConfig_mqlToSqlRate",
           "label": "MQL to SQL Rate %",
           "value": "45"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "sqlToDealRate",
+          "name": "componentConfig_sqlToDealRate",
           "label": "SQL to Deal Rate %",
           "value": "22"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "averageDealValue",
+          "name": "componentConfig_averageDealValue",
           "label": "Average Deal Value",
           "value": "18000"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "salesCycleDays",
+          "name": "componentConfig_salesCycleDays",
           "label": "Sales Cycle (days)",
           "value": "45"
         },
         {
           "component": "text",
           "valueType": "string",
-          "name": "showScenarioComparison",
+          "name": "componentConfig_showScenarioComparison",
           "label": "Show Scenario Comparison (true/false)",
           "value": "true"
         },
         {
           "component": "text",
           "valueType": "number",
-          "name": "optimizationLiftPercent",
+          "name": "componentConfig_optimizationLiftPercent",
           "label": "Optimization Lift %",
           "value": "20"
         }
