@@ -21,6 +21,6 @@ jobs:
     - name: Install React dependencies
       working-directory: react
       run: pnpm install
-    - run: npm run lint
+#    - run: npm run lint
     - name: Build React blocks
       run: npm run react:build

@@ -85,6 +85,7 @@ function buildChannels(config) {
 }
 
 export default async function decorate(block) {
+  console.log('ogBlock:', block.cloneNode(true));
   const config = readBlockProperties(block);
 
   const moduleUrl = new URL('../../react/dist/budget-planner/budget-planner.js', import.meta.url).toString();
