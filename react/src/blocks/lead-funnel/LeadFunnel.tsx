@@ -118,12 +118,12 @@ export function LeadFunnel({
 
   return (
     <section className="lead-funnel" aria-label="Lead funnel simulator">
-      <header className="lead-funnel__header">
+      <header className="lead-funnel-header">
         <h2>{title}</h2>
         <p>{description}</p>
       </header>
 
-      <div className="lead-funnel__toolbar">
+      <div className="lead-funnel-toolbar">
         <button type="button" className={period === 'month' ? 'is-active' : ''} onClick={() => setPeriod('month')}>
           Monthly
         </button>
@@ -132,8 +132,8 @@ export function LeadFunnel({
         </button>
       </div>
 
-      <div className="lead-funnel__grid">
-        <label className="lead-funnel__field">
+      <div className="lead-funnel-grid">
+        <label className="lead-funnel-field">
           Monthly traffic
           <input
             type="number"
@@ -144,7 +144,7 @@ export function LeadFunnel({
           />
         </label>
 
-        <label className="lead-funnel__field">
+        <label className="lead-funnel-field">
           Visitor to lead
           <input
             type="range"
@@ -154,10 +154,10 @@ export function LeadFunnel({
             value={v2l * 100}
             onChange={(event) => setV2l(clamp(Number(event.target.value) || 0, 0.1, 20) / 100)}
           />
-          <span className="lead-funnel__field-value">{formatRate(v2l)}</span>
+          <span className="lead-funnel-field-value">{formatRate(v2l)}</span>
         </label>
 
-        <label className="lead-funnel__field">
+        <label className="lead-funnel-field">
           Lead to MQL
           <input
             type="range"
@@ -167,10 +167,10 @@ export function LeadFunnel({
             value={l2m * 100}
             onChange={(event) => setL2m(clamp(Number(event.target.value) || 0, 1, 100) / 100)}
           />
-          <span className="lead-funnel__field-value">{formatRate(l2m)}</span>
+          <span className="lead-funnel-field-value">{formatRate(l2m)}</span>
         </label>
 
-        <label className="lead-funnel__field">
+        <label className="lead-funnel-field">
           MQL to SQL
           <input
             type="range"
@@ -180,10 +180,10 @@ export function LeadFunnel({
             value={m2s * 100}
             onChange={(event) => setM2s(clamp(Number(event.target.value) || 0, 1, 100) / 100)}
           />
-          <span className="lead-funnel__field-value">{formatRate(m2s)}</span>
+          <span className="lead-funnel-field-value">{formatRate(m2s)}</span>
         </label>
 
-        <label className="lead-funnel__field">
+        <label className="lead-funnel-field">
           SQL to deal
           <input
             type="range"
@@ -193,10 +193,10 @@ export function LeadFunnel({
             value={s2d * 100}
             onChange={(event) => setS2d(clamp(Number(event.target.value) || 0, 1, 100) / 100)}
           />
-          <span className="lead-funnel__field-value">{formatRate(s2d)}</span>
+          <span className="lead-funnel-field-value">{formatRate(s2d)}</span>
         </label>
 
-        <label className="lead-funnel__field">
+        <label className="lead-funnel-field">
           Average deal value
           <input
             type="number"
@@ -208,34 +208,34 @@ export function LeadFunnel({
         </label>
       </div>
 
-      <dl className="lead-funnel__summary">
-        <div className="lead-funnel__summary-card">
+      <dl className="lead-funnel-summary">
+        <div className="lead-funnel-summary-card">
           <dt>Leads</dt>
           <dd>{Math.round(baseline.leads).toLocaleString()}</dd>
         </div>
-        <div className="lead-funnel__summary-card">
+        <div className="lead-funnel-summary-card">
           <dt>MQLs</dt>
           <dd>{Math.round(baseline.mqls).toLocaleString()}</dd>
         </div>
-        <div className="lead-funnel__summary-card">
+        <div className="lead-funnel-summary-card">
           <dt>SQLs</dt>
           <dd>{Math.round(baseline.sqls).toLocaleString()}</dd>
         </div>
-        <div className="lead-funnel__summary-card">
+        <div className="lead-funnel-summary-card">
           <dt>Deals</dt>
           <dd>{baseline.deals.toFixed(1)}</dd>
         </div>
-        <div className="lead-funnel__summary-card">
+        <div className="lead-funnel-summary-card">
           <dt>Revenue ({period})</dt>
           <dd>{formatCurrency(baseline.revenue)}</dd>
         </div>
-        <div className="lead-funnel__summary-card">
+        <div className="lead-funnel-summary-card">
           <dt>Sales cycle</dt>
           <dd>{Math.round(salesCycleDays)} days</dd>
         </div>
       </dl>
 
-      <div className="lead-funnel__field" style={{ marginTop: '16px' }}>
+      <div className="lead-funnel-field" style={{ marginTop: '16px' }}>
         <label>
           <input
             type="checkbox"
@@ -254,20 +254,20 @@ export function LeadFunnel({
             value={liftPercent}
             onChange={(event) => setLiftPercent(clamp(Number(event.target.value) || 0, 0, 100))}
           />
-          <span className="lead-funnel__field-value">{liftPercent}%</span>
+          <span className="lead-funnel-field-value">{liftPercent}%</span>
         </label>
       </div>
 
       {comparison && (
-        <section className="lead-funnel__comparison" aria-label="Optimization scenario">
+        <section className="lead-funnel-comparison" aria-label="Optimization scenario">
           <h3>Optimization scenario</h3>
           <p>
             Deals: {comparison.lifted.deals.toFixed(1)}{' '}
-            <span className="lead-funnel__delta">(+{comparison.dealDelta.toFixed(1)})</span>
+            <span className="lead-funnel-delta">(+{comparison.dealDelta.toFixed(1)})</span>
           </p>
           <p>
             Revenue: {formatCurrency(comparison.lifted.revenue)}{' '}
-            <span className="lead-funnel__delta">(+{formatCurrency(comparison.revenueDelta)})</span>
+            <span className="lead-funnel-delta">(+{formatCurrency(comparison.revenueDelta)})</span>
           </p>
         </section>
       )}

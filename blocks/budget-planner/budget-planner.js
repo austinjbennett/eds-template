@@ -40,14 +40,48 @@ const ORDERED_FIELD_KEYS = [
   'channel3ConversionRate',
 ];
 
-function readBlockProperties(block) {
-  const rows = [...block.querySelectorAll(':scope > div')];
+const GROUPED_FIELD_KEYS = [
+  ['title', 'description', 'averageDealValue'],
+  ['channel1Name', 'channel1Budget', 'channel1Cpl', 'channel1ConversionRate'],
+  ['channel2Name', 'channel2Budget', 'channel2Cpl', 'channel2ConversionRate'],
+  ['channel3Name', 'channel3Budget', 'channel3Cpl', 'channel3ConversionRate'],
+];
 
-  if (rows.length !== ORDERED_FIELD_KEYS.length) {
-    // eslint-disable-next-line no-console
-    console.warn(`budget-planner: expected ${ORDERED_FIELD_KEYS.length} rows, got ${rows.length}`);
+function getRowValues(row) {
+  const cells = [...row.querySelectorAll(':scope > div > div, :scope > div')];
+  const values = cells
+    .map((cell) => cell.textContent?.trim())
+    .filter((value) => Boolean(value));
+
+  if (values.length) {
+    return values;
   }
 
+  const fallbackValue = row.textContent?.trim();
+  return fallbackValue ? [fallbackValue] : [];
+}
+
+function readGroupedProperties(rows) {
+  return GROUPED_FIELD_KEYS.reduce((acc, keys, rowIndex) => {
+    const row = rows[rowIndex];
+    if (!row) {
+      return acc;
+    }
+
+    const values = getRowValues(row);
+
+    keys.forEach((key, valueIndex) => {
+      const value = values[valueIndex];
+      if (value) {
+        acc[key] = value;
+      }
+    });
+
+    return acc;
+  }, {});
+}
+
+function readLegacyProperties(rows) {
   return ORDERED_FIELD_KEYS.reduce((acc, key, index) => {
     const value = rows[index]?.textContent?.trim();
     if (value) {
@@ -55,6 +89,21 @@ function readBlockProperties(block) {
     }
     return acc;
   }, {});
+}
+
+function readBlockProperties(block) {
+  const rows = [...block.querySelectorAll(':scope > div')];
+
+  if (rows.length <= GROUPED_FIELD_KEYS.length) {
+    return readGroupedProperties(rows);
+  }
+
+  if (rows.length !== ORDERED_FIELD_KEYS.length) {
+    // eslint-disable-next-line no-console
+    console.warn(`budget-planner: expected ${ORDERED_FIELD_KEYS.length} rows, got ${rows.length}`);
+  }
+
+  return readLegacyProperties(rows);
 }
 
 function buildChannels(config) {
@@ -86,6 +135,7 @@ function buildChannels(config) {
 
 export default async function decorate(block) {
   console.log('ogBlock:', block.cloneNode(true));
+  console.log('block.outerHTML:', block.outerHTML);
   const config = readBlockProperties(block);
 
   const moduleUrl = new URL('../../react/dist/budget-planner/budget-planner.js', import.meta.url).toString();

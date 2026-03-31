@@ -58,11 +58,11 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 		"aria-label": "Lead funnel simulator",
 		children: [
 			/* @__PURE__ */ (0, a.jsxs)("header", {
-				className: "lead-funnel__header",
+				className: "lead-funnel-header",
 				children: [/* @__PURE__ */ (0, a.jsx)("h2", { children: e }), /* @__PURE__ */ (0, a.jsx)("p", { children: t })]
 			}),
 			/* @__PURE__ */ (0, a.jsxs)("div", {
-				className: "lead-funnel__toolbar",
+				className: "lead-funnel-toolbar",
 				children: [/* @__PURE__ */ (0, a.jsx)("button", {
 					type: "button",
 					className: _ === "month" ? "is-active" : "",
@@ -76,10 +76,10 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 				})]
 			}),
 			/* @__PURE__ */ (0, a.jsxs)("div", {
-				className: "lead-funnel__grid",
+				className: "lead-funnel-grid",
 				children: [
 					/* @__PURE__ */ (0, a.jsxs)("label", {
-						className: "lead-funnel__field",
+						className: "lead-funnel-field",
 						children: ["Monthly traffic", /* @__PURE__ */ (0, a.jsx)("input", {
 							type: "number",
 							min: 1e3,
@@ -89,7 +89,7 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 						})]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("label", {
-						className: "lead-funnel__field",
+						className: "lead-funnel-field",
 						children: [
 							"Visitor to lead",
 							/* @__PURE__ */ (0, a.jsx)("input", {
@@ -101,13 +101,13 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 								onChange: (e) => S(o(Number(e.target.value) || 0, .1, 20) / 100)
 							}),
 							/* @__PURE__ */ (0, a.jsx)("span", {
-								className: "lead-funnel__field-value",
+								className: "lead-funnel-field-value",
 								children: c(x)
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("label", {
-						className: "lead-funnel__field",
+						className: "lead-funnel-field",
 						children: [
 							"Lead to MQL",
 							/* @__PURE__ */ (0, a.jsx)("input", {
@@ -119,13 +119,13 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 								onChange: (e) => w(o(Number(e.target.value) || 0, 1, 100) / 100)
 							}),
 							/* @__PURE__ */ (0, a.jsx)("span", {
-								className: "lead-funnel__field-value",
+								className: "lead-funnel-field-value",
 								children: c(C)
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("label", {
-						className: "lead-funnel__field",
+						className: "lead-funnel-field",
 						children: [
 							"MQL to SQL",
 							/* @__PURE__ */ (0, a.jsx)("input", {
@@ -137,13 +137,13 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 								onChange: (e) => E(o(Number(e.target.value) || 0, 1, 100) / 100)
 							}),
 							/* @__PURE__ */ (0, a.jsx)("span", {
-								className: "lead-funnel__field-value",
+								className: "lead-funnel-field-value",
 								children: c(T)
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("label", {
-						className: "lead-funnel__field",
+						className: "lead-funnel-field",
 						children: [
 							"SQL to deal",
 							/* @__PURE__ */ (0, a.jsx)("input", {
@@ -155,13 +155,13 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 								onChange: (e) => O(o(Number(e.target.value) || 0, 1, 100) / 100)
 							}),
 							/* @__PURE__ */ (0, a.jsx)("span", {
-								className: "lead-funnel__field-value",
+								className: "lead-funnel-field-value",
 								children: c(D)
 							})
 						]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("label", {
-						className: "lead-funnel__field",
+						className: "lead-funnel-field",
 						children: ["Average deal value", /* @__PURE__ */ (0, a.jsx)("input", {
 							type: "number",
 							min: 1e3,
@@ -173,26 +173,26 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 				]
 			}),
 			/* @__PURE__ */ (0, a.jsxs)("dl", {
-				className: "lead-funnel__summary",
+				className: "lead-funnel-summary",
 				children: [
 					/* @__PURE__ */ (0, a.jsxs)("div", {
-						className: "lead-funnel__summary-card",
+						className: "lead-funnel-summary-card",
 						children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "Leads" }), /* @__PURE__ */ (0, a.jsx)("dd", { children: Math.round(I.leads).toLocaleString() })]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("div", {
-						className: "lead-funnel__summary-card",
+						className: "lead-funnel-summary-card",
 						children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "MQLs" }), /* @__PURE__ */ (0, a.jsx)("dd", { children: Math.round(I.mqls).toLocaleString() })]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("div", {
-						className: "lead-funnel__summary-card",
+						className: "lead-funnel-summary-card",
 						children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "SQLs" }), /* @__PURE__ */ (0, a.jsx)("dd", { children: Math.round(I.sqls).toLocaleString() })]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("div", {
-						className: "lead-funnel__summary-card",
+						className: "lead-funnel-summary-card",
 						children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "Deals" }), /* @__PURE__ */ (0, a.jsx)("dd", { children: I.deals.toFixed(1) })]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("div", {
-						className: "lead-funnel__summary-card",
+						className: "lead-funnel-summary-card",
 						children: [/* @__PURE__ */ (0, a.jsxs)("dt", { children: [
 							"Revenue (",
 							_,
@@ -200,13 +200,13 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 						] }), /* @__PURE__ */ (0, a.jsx)("dd", { children: s(I.revenue) })]
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("div", {
-						className: "lead-funnel__summary-card",
+						className: "lead-funnel-summary-card",
 						children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "Sales cycle" }), /* @__PURE__ */ (0, a.jsxs)("dd", { children: [Math.round(m), " days"] })]
 					})
 				]
 			}),
 			/* @__PURE__ */ (0, a.jsxs)("div", {
-				className: "lead-funnel__field",
+				className: "lead-funnel-field",
 				style: { marginTop: "16px" },
 				children: [/* @__PURE__ */ (0, a.jsxs)("label", { children: [
 					/* @__PURE__ */ (0, a.jsx)("input", {
@@ -227,13 +227,13 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 						onChange: (e) => M(o(Number(e.target.value) || 0, 0, 100))
 					}),
 					/* @__PURE__ */ (0, a.jsxs)("span", {
-						className: "lead-funnel__field-value",
+						className: "lead-funnel-field-value",
 						children: [j, "%"]
 					})
 				] })]
 			}),
 			L && /* @__PURE__ */ (0, a.jsxs)("section", {
-				className: "lead-funnel__comparison",
+				className: "lead-funnel-comparison",
 				"aria-label": "Optimization scenario",
 				children: [
 					/* @__PURE__ */ (0, a.jsx)("h3", { children: "Optimization scenario" }),
@@ -242,7 +242,7 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 						L.lifted.deals.toFixed(1),
 						" ",
 						/* @__PURE__ */ (0, a.jsxs)("span", {
-							className: "lead-funnel__delta",
+							className: "lead-funnel-delta",
 							children: [
 								"(+",
 								L.dealDelta.toFixed(1),
@@ -255,7 +255,7 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 						s(L.lifted.revenue),
 						" ",
 						/* @__PURE__ */ (0, a.jsxs)("span", {
-							className: "lead-funnel__delta",
+							className: "lead-funnel-delta",
 							children: [
 								"(+",
 								s(L.revenueDelta),

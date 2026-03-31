@@ -80,12 +80,12 @@ export function BudgetPlanner({
 
   return (
     <section className="budget-planner" aria-label="Marketing budget planner">
-      <header className="budget-planner__header">
+      <header className="budget-planner-header">
         <h2>{title}</h2>
         <p>{description}</p>
       </header>
 
-      <div className="budget-planner__deal-value">
+      <div className="budget-planner-deal-value">
         <label htmlFor="deal-value">Average deal value</label>
         <input
           id="deal-value"
@@ -97,15 +97,15 @@ export function BudgetPlanner({
         />
       </div>
 
-      <ul className="budget-planner__channels">
+      <ul className="budget-planner-channels">
         {channels.map((channel) => {
           const leads = channel.budget / channel.cpl;
           const deals = leads * channel.conversionRate;
 
           return (
-            <li key={channel.id} className="budget-planner__channel-card">
+            <li key={channel.id} className="budget-planner-channel-card">
               <h3>{channel.name}</h3>
-              <div className="budget-planner__field">
+              <div className="budget-planner-field">
                 <label htmlFor={`${channel.id}-budget`}>Monthly budget</label>
                 <input
                   id={`${channel.id}-budget`}
@@ -123,7 +123,7 @@ export function BudgetPlanner({
                 <output>{formatCurrency(channel.budget)}</output>
               </div>
 
-              <div className="budget-planner__field-grid">
+              <div className="budget-planner-field-grid">
                 <div>
                   <label htmlFor={`${channel.id}-cpl`}>Cost per lead</label>
                   <input
@@ -157,7 +157,7 @@ export function BudgetPlanner({
                 </div>
               </div>
 
-              <p className="budget-planner__metrics">
+              <p className="budget-planner-metrics">
                 {Math.round(leads)} leads/month, {deals.toFixed(1)} deals/month
               </p>
             </li>
@@ -165,7 +165,7 @@ export function BudgetPlanner({
         })}
       </ul>
 
-      <dl className="budget-planner__summary">
+      <dl className="budget-planner-summary">
         <div>
           <dt>Total budget</dt>
           <dd>{formatCurrency(totals.totalBudget)}</dd>

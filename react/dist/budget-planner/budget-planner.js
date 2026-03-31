@@ -33,11 +33,11 @@ function l({ title: e = "Budget Planner", description: t = "Adjust channel spend
 		"aria-label": "Marketing budget planner",
 		children: [
 			/* @__PURE__ */ (0, a.jsxs)("header", {
-				className: "budget-planner__header",
+				className: "budget-planner-header",
 				children: [/* @__PURE__ */ (0, a.jsx)("h2", { children: e }), /* @__PURE__ */ (0, a.jsx)("p", { children: t })]
 			}),
 			/* @__PURE__ */ (0, a.jsxs)("div", {
-				className: "budget-planner__deal-value",
+				className: "budget-planner-deal-value",
 				children: [/* @__PURE__ */ (0, a.jsx)("label", {
 					htmlFor: "deal-value",
 					children: "Average deal value"
@@ -51,15 +51,15 @@ function l({ title: e = "Budget Planner", description: t = "Adjust channel spend
 				})]
 			}),
 			/* @__PURE__ */ (0, a.jsx)("ul", {
-				className: "budget-planner__channels",
+				className: "budget-planner-channels",
 				children: l.map((e) => {
 					let t = e.budget / e.cpl, n = t * e.conversionRate;
 					return /* @__PURE__ */ (0, a.jsxs)("li", {
-						className: "budget-planner__channel-card",
+						className: "budget-planner-channel-card",
 						children: [
 							/* @__PURE__ */ (0, a.jsx)("h3", { children: e.name }),
 							/* @__PURE__ */ (0, a.jsxs)("div", {
-								className: "budget-planner__field",
+								className: "budget-planner-field",
 								children: [
 									/* @__PURE__ */ (0, a.jsx)("label", {
 										htmlFor: `${e.id}-budget`,
@@ -78,7 +78,7 @@ function l({ title: e = "Budget Planner", description: t = "Adjust channel spend
 								]
 							}),
 							/* @__PURE__ */ (0, a.jsxs)("div", {
-								className: "budget-planner__field-grid",
+								className: "budget-planner-field-grid",
 								children: [/* @__PURE__ */ (0, a.jsxs)("div", { children: [/* @__PURE__ */ (0, a.jsx)("label", {
 									htmlFor: `${e.id}-cpl`,
 									children: "Cost per lead"
@@ -103,7 +103,7 @@ function l({ title: e = "Budget Planner", description: t = "Adjust channel spend
 								})] })]
 							}),
 							/* @__PURE__ */ (0, a.jsxs)("p", {
-								className: "budget-planner__metrics",
+								className: "budget-planner-metrics",
 								children: [
 									Math.round(t),
 									" leads/month, ",
@@ -116,7 +116,7 @@ function l({ title: e = "Budget Planner", description: t = "Adjust channel spend
 				})
 			}),
 			/* @__PURE__ */ (0, a.jsxs)("dl", {
-				className: "budget-planner__summary",
+				className: "budget-planner-summary",
 				children: [
 					/* @__PURE__ */ (0, a.jsxs)("div", { children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "Total budget" }), /* @__PURE__ */ (0, a.jsx)("dd", { children: o(p.totalBudget) })] }),
 					/* @__PURE__ */ (0, a.jsxs)("div", { children: [/* @__PURE__ */ (0, a.jsx)("dt", { children: "Projected leads" }), /* @__PURE__ */ (0, a.jsx)("dd", { children: Math.round(p.totalLeads).toLocaleString() })] }),
