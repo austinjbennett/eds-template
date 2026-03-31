@@ -1,0 +1,105 @@
+{
+  "definitions": [
+    {
+      "title": "Lead Funnel Simulator",
+      "id": "lead-funnel",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Lead Funnel",
+              "model": "lead-funnel"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "lead-funnel",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "title",
+          "label": "Title",
+          "value": "Lead Funnel Simulator"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "description",
+          "label": "Description",
+          "value": "Model conversion rates and compare optimization scenarios in real time."
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "monthlyTraffic",
+          "label": "Monthly Traffic",
+          "value": "50000"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "visitorToLeadRate",
+          "label": "Visitor to Lead Rate %",
+          "value": "2.8"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "leadToMqlRate",
+          "label": "Lead to MQL Rate %",
+          "value": "38"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "mqlToSqlRate",
+          "label": "MQL to SQL Rate %",
+          "value": "45"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "sqlToDealRate",
+          "label": "SQL to Deal Rate %",
+          "value": "22"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "averageDealValue",
+          "label": "Average Deal Value",
+          "value": "18000"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "salesCycleDays",
+          "label": "Sales Cycle (days)",
+          "value": "45"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "showScenarioComparison",
+          "label": "Show Scenario Comparison (true/false)",
+          "value": "true"
+        },
+        {
+          "component": "text",
+          "valueType": "number",
+          "name": "optimizationLiftPercent",
+          "label": "Optimization Lift %",
+          "value": "20"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}
+

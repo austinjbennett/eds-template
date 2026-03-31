@@ -5,8 +5,7 @@ import { resolve } from 'path';
 // Define block entries in one place for reuse
 const blockEntries = {
   'budget-planner/budget-planner': resolve(__dirname, 'src/blocks/budget-planner/index.tsx'),
-  // Add more blocks here as needed:
-  // 'product-filter/product-filter': resolve(__dirname, 'src/blocks/product-filter/index.tsx'),
+  'lead-funnel/lead-funnel': resolve(__dirname, 'src/blocks/lead-funnel/index.tsx'),
 };
 
 
