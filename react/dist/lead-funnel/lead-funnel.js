@@ -1,4 +1,4 @@
-import { n as e, r as t, t as n } from "../_shared/jsx-runtime-CFYM6stx.js";
+import { n as e, r as t, t as n } from "../_shared/jsx-runtime.js";
 //#region src/blocks/lead-funnel/LeadFunnel.tsx
 var r = e(), i = t(), a = n();
 function o(e, t, n) {
