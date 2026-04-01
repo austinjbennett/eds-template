@@ -22,39 +22,29 @@ const DEFAULT_CHANNELS = [
   },
 ];
 
-const ORDERED_FIELD_KEYS = [
-  'title',
-  'description',
-  'averageDealValue',
-  'channel1Name',
-  'channel1Budget',
-  'channel1Cpl',
-  'channel1ConversionRate',
-  'channel2Name',
-  'channel2Budget',
-  'channel2Cpl',
-  'channel2ConversionRate',
-  'channel3Name',
-  'channel3Budget',
-  'channel3Cpl',
-  'channel3ConversionRate',
-];
-
 const GROUPED_FIELD_KEYS = [
-  ['title', 'description', 'averageDealValue'],
+  ['title', 'description'],
+  ['averageDealValue'],
   ['channel1Name', 'channel1Budget', 'channel1Cpl', 'channel1ConversionRate'],
   ['channel2Name', 'channel2Budget', 'channel2Cpl', 'channel2ConversionRate'],
   ['channel3Name', 'channel3Budget', 'channel3Cpl', 'channel3ConversionRate'],
 ];
 
 function getRowValues(row) {
-  const cells = [...row.querySelectorAll(':scope > div > div, :scope > div')];
-  const values = cells
+  const values = [...row.querySelectorAll(':scope > div > *')]
     .map((cell) => cell.textContent?.trim())
     .filter((value) => Boolean(value));
 
   if (values.length) {
     return values;
+  }
+
+  const nestedValues = [...row.querySelectorAll(':scope > div > div > *')]
+    .map((cell) => cell.textContent?.trim())
+    .filter((value) => Boolean(value));
+
+  if (nestedValues.length) {
+    return nestedValues;
   }
 
   const fallbackValue = row.textContent?.trim();
@@ -81,29 +71,9 @@ function readGroupedProperties(rows) {
   }, {});
 }
 
-function readLegacyProperties(rows) {
-  return ORDERED_FIELD_KEYS.reduce((acc, key, index) => {
-    const value = rows[index]?.textContent?.trim();
-    if (value) {
-      acc[key] = value;
-    }
-    return acc;
-  }, {});
-}
-
 function readBlockProperties(block) {
   const rows = [...block.querySelectorAll(':scope > div')];
-
-  if (rows.length <= GROUPED_FIELD_KEYS.length) {
-    return readGroupedProperties(rows);
-  }
-
-  if (rows.length !== ORDERED_FIELD_KEYS.length) {
-    // eslint-disable-next-line no-console
-    console.warn(`budget-planner: expected ${ORDERED_FIELD_KEYS.length} rows, got ${rows.length}`);
-  }
-
-  return readLegacyProperties(rows);
+  return readGroupedProperties(rows);
 }
 
 function buildChannels(config) {

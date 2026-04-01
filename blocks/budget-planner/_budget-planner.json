@@ -37,7 +37,7 @@
         {
           "component": "text",
           "valueType": "number",
-          "name": "textContent_averageDealValue",
+          "name": "averageDealValue",
           "label": "Average Deal Value",
           "value": "18000"
         },
