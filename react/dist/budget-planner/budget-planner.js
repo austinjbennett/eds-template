@@ -29,7 +29,7 @@ function l({ title: e = "Budget Planner", description: t = "Adjust channel spend
 		} : n));
 	};
 	return /* @__PURE__ */ (0, a.jsxs)("section", {
-		className: "budget-planner",
+		className: "budget-planner-r",
 		"aria-label": "Marketing budget planner",
 		children: [
 			/* @__PURE__ */ (0, a.jsxs)("header", {

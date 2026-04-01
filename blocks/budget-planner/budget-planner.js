@@ -23,11 +23,11 @@ const DEFAULT_CHANNELS = [
 ];
 
 const GROUPED_FIELD_KEYS = [
-  ['title', 'description'],
+  ['title', 'description'], // textContent field group
   ['averageDealValue'],
-  ['channel1Name', 'channel1Budget', 'channel1Cpl', 'channel1ConversionRate'],
-  ['channel2Name', 'channel2Budget', 'channel2Cpl', 'channel2ConversionRate'],
-  ['channel3Name', 'channel3Budget', 'channel3Cpl', 'channel3ConversionRate'],
+  ['channel1Name', 'channel1Budget', 'channel1Cpl', 'channel1ConversionRate'], // channel1 field group
+  ['channel2Name', 'channel2Budget', 'channel2Cpl', 'channel2ConversionRate'], // channel2 field group
+  ['channel3Name', 'channel3Budget', 'channel3Cpl', 'channel3ConversionRate'], // channel3 field group
 ];
 
 function getRowValues(row) {

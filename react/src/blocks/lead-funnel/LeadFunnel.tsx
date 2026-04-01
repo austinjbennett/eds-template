@@ -117,7 +117,7 @@ export function LeadFunnel({
   }, [compareEnabled, liftPercent, traffic, v2l, l2m, m2s, s2d, dealValue, multiplier, baseline]);
 
   return (
-    <section className="lead-funnel" aria-label="Lead funnel simulator">
+    <section className="lead-funnel-r" aria-label="Lead funnel simulator">
       <header className="lead-funnel-header">
         <h2>{title}</h2>
         <p>{description}</p>

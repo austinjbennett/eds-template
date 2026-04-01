@@ -1,30 +1,47 @@
-const ORDERED_FIELD_KEYS = [
-  'title',
-  'description',
-  'monthlyTraffic',
-  'visitorToLeadRate',
-  'leadToMqlRate',
-  'mqlToSqlRate',
-  'sqlToDealRate',
-  'averageDealValue',
-  'salesCycleDays',
-  'showScenarioComparison',
-  'optimizationLiftPercent',
+const GROUPED_FIELD_KEYS = [
+  ['title', 'description'],
+  ['monthlyTraffic', 'visitorToLeadRate', 'leadToMqlRate', 'mqlToSqlRate', 'sqlToDealRate', 'averageDealValue', 'salesCycleDays', 'showScenarioComparison', 'optimizationLiftPercent'],
 ];
+
+function getRowValues(row) {
+  const values = [...row.querySelectorAll(':scope > div > *')]
+    .map((cell) => cell.textContent?.trim())
+    .filter((value) => Boolean(value));
+
+  if (values.length) {
+    return values;
+  }
+
+  const nestedValues = [...row.querySelectorAll(':scope > div > div > *')]
+    .map((cell) => cell.textContent?.trim())
+    .filter((value) => Boolean(value));
+
+  if (nestedValues.length) {
+    return nestedValues;
+  }
+
+  const fallbackValue = row.textContent?.trim();
+  return fallbackValue ? [fallbackValue] : [];
+}
 
 function readBlockProperties(block) {
   const rows = [...block.querySelectorAll(':scope > div')];
 
-  if (rows.length !== ORDERED_FIELD_KEYS.length) {
-    // eslint-disable-next-line no-console
-    console.warn(`lead-funnel: expected ${ORDERED_FIELD_KEYS.length} rows, got ${rows.length}`);
-  }
-
-  return ORDERED_FIELD_KEYS.reduce((acc, key, index) => {
-    const value = rows[index]?.textContent?.trim();
-    if (value) {
-      acc[key] = value;
+  return GROUPED_FIELD_KEYS.reduce((acc, keys, rowIndex) => {
+    const row = rows[rowIndex];
+    if (!row) {
+      return acc;
     }
+
+    const rowValues = getRowValues(row);
+
+    keys.forEach((key, valueIndex) => {
+      const value = rowValues[valueIndex];
+      if (value) {
+        acc[key] = value;
+      }
+    });
+
     return acc;
   }, {});
 }

@@ -1,4 +1,4 @@
-.lead-funnel {
+.lead-funnel-r {
   --panel: #fff;
   --border: #d9d9de;
   --text: #22222a;
@@ -34,6 +34,7 @@
   border-radius: 999px;
   background: #fff;
   padding: 6px 12px;
+  color: var(--muted);
   cursor: pointer;
 }
 
@@ -60,7 +61,7 @@
 
 .lead-funnel-field input[type='number'],
 .lead-funnel-field input[type='range'] {
-  width: 100%;
+  width: calc(100% - 24px);
 }
 
 .lead-funnel-field-value {

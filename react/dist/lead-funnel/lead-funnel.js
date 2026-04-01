@@ -54,7 +54,7 @@ function u({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 		I
 	]);
 	return /* @__PURE__ */ (0, a.jsxs)("section", {
-		className: "lead-funnel",
+		className: "lead-funnel-r",
 		"aria-label": "Lead funnel simulator",
 		children: [
 			/* @__PURE__ */ (0, a.jsxs)("header", {

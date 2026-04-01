@@ -79,7 +79,7 @@ export function BudgetPlanner({
   };
 
   return (
-    <section className="budget-planner" aria-label="Marketing budget planner">
+    <section className="budget-planner-r" aria-label="Marketing budget planner">
       <header className="budget-planner-header">
         <h2>{title}</h2>
         <p>{description}</p>
