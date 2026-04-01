@@ -26,7 +26,7 @@ export default defineConfig({
     rolldownOptions: {
       output: {
         entryFileNames: '[name].js',
-        chunkFileNames: '_shared/[name].js',
+        chunkFileNames: 'shared/[name].js',
       },
     },
   },

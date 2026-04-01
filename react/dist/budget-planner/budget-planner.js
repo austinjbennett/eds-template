@@ -1,4 +1,4 @@
-import { n as e, r as t, t as n } from "../_shared/jsx-runtime.js";
+import { n as e, r as t, t as n } from "../shared/jsx-runtime.js";
 //#region src/blocks/budget-planner/BudgetPlanner.tsx
 var r = e(), i = t(), a = n();
 function o(e) {
