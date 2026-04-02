@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react';
+import BlockHeader from '../../components/BlockHeader';
+import Card from '../../components/Card';
 
 type FunnelProps = {
   title?: string;
@@ -118,10 +120,7 @@ export function LeadFunnel({
 
   return (
     <section className="lead-funnel-r" aria-label="Lead funnel simulator">
-      <header className="lead-funnel-header">
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </header>
+      <BlockHeader title={title} description={description} className="lead-funnel-header" />
 
       <div className="lead-funnel-toolbar">
         <button type="button" className={period === 'month' ? 'is-active' : ''} onClick={() => setPeriod('month')}>
@@ -208,32 +207,14 @@ export function LeadFunnel({
         </label>
       </div>
 
-      <dl className="lead-funnel-summary">
-        <div className="lead-funnel-summary-card">
-          <dt>Leads</dt>
-          <dd>{Math.round(baseline.leads).toLocaleString()}</dd>
-        </div>
-        <div className="lead-funnel-summary-card">
-          <dt>MQLs</dt>
-          <dd>{Math.round(baseline.mqls).toLocaleString()}</dd>
-        </div>
-        <div className="lead-funnel-summary-card">
-          <dt>SQLs</dt>
-          <dd>{Math.round(baseline.sqls).toLocaleString()}</dd>
-        </div>
-        <div className="lead-funnel-summary-card">
-          <dt>Deals</dt>
-          <dd>{baseline.deals.toFixed(1)}</dd>
-        </div>
-        <div className="lead-funnel-summary-card">
-          <dt>Revenue ({period})</dt>
-          <dd>{formatCurrency(baseline.revenue)}</dd>
-        </div>
-        <div className="lead-funnel-summary-card">
-          <dt>Sales cycle</dt>
-          <dd>{Math.round(salesCycleDays)} days</dd>
-        </div>
-      </dl>
+      <section className="lead-funnel-summary" aria-label="Lead funnel summary metrics">
+        <Card title="Leads" value={Math.round(baseline.leads).toLocaleString()} />
+        <Card title="MQLs" value={Math.round(baseline.mqls).toLocaleString()} />
+        <Card title="SQLs" value={Math.round(baseline.sqls).toLocaleString()} />
+        <Card title="Deals" value={baseline.deals.toFixed(1)} />
+        <Card title={`Revenue (${period})`} value={formatCurrency(baseline.revenue)} />
+        <Card title="Sales cycle" value={`${Math.round(salesCycleDays)} days`} />
+      </section>
 
       <div className="lead-funnel-field" style={{ marginTop: '16px' }}>
         <label>

@@ -76,19 +76,19 @@
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
-.lead-funnel-summary-card {
+.lead-funnel-summary .reusable-card {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px;
 }
 
-.lead-funnel-summary-card dt {
+.lead-funnel-summary .reusable-card-title {
   margin: 0;
   color: var(--muted);
   font-size: 0.82rem;
 }
 
-.lead-funnel-summary-card dd {
+.lead-funnel-summary .reusable-card-value {
   margin: 6px 0 0;
   font-size: 1.05rem;
   font-weight: 700;

@@ -8010,8 +8010,28 @@ var e = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports), t
 	e.jsx = n, e.jsxs = n;
 })), u = /* @__PURE__ */ e(((e, t) => {
 	t.exports = l();
-}));
+})), d = u();
+function f({ title: e, description: t, className: n = "block-header" }) {
+	return /* @__PURE__ */ (0, d.jsxs)("header", {
+		className: n,
+		children: [/* @__PURE__ */ (0, d.jsx)("h2", { children: e }), t && /* @__PURE__ */ (0, d.jsx)("p", { children: t })]
+	});
+}
 //#endregion
-export { c as n, i as r, u as t };
+//#region src/components/Card.tsx
+function p({ title: e, value: t, tone: n = "default" }) {
+	return /* @__PURE__ */ (0, d.jsxs)("article", {
+		className: `reusable-card ${n === "default" ? "" : `is-${n}`}`.trim(),
+		children: [/* @__PURE__ */ (0, d.jsx)("p", {
+			className: "reusable-card-title",
+			children: e
+		}), /* @__PURE__ */ (0, d.jsx)("p", {
+			className: "reusable-card-value",
+			children: t
+		})]
+	});
+}
+//#endregion
+export { i as a, c as i, f as n, u as r, p as t };
 
-//# sourceMappingURL=jsx-runtime.js.map
+//# sourceMappingURL=Card.js.map

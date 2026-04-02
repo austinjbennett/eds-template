@@ -91,28 +91,29 @@
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
-.budget-planner-summary div {
+.budget-planner-summary .reusable-card {
     background: #f5f6ff;
     border-radius: 8px;
     padding: 10px;
 }
 
-.budget-planner-summary dt {
+.budget-planner-summary .reusable-card-title {
+    margin: 0;
     color: var(--muted);
     font-size: 0.85rem;
 }
 
-.budget-planner-summary dd {
+.budget-planner-summary .reusable-card-value {
     margin: 6px 0 0;
     font-size: 1.1rem;
     font-weight: 700;
 }
 
-.budget-planner-summary .is-positive {
+.budget-planner-summary .reusable-card.is-positive .reusable-card-value {
     color: #0f766e;
 }
 
-.budget-planner-summary .is-negative {
+.budget-planner-summary .reusable-card.is-negative .reusable-card-value {
     color: #b91c1c;
 }
 
