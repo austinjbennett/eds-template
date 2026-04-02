@@ -1,49 +1,12 @@
+import readGroupedBlockProperties from '../utils/grouped-block-config.js';
+
 const GROUPED_FIELD_KEYS = [
   ['title', 'description'],
   ['monthlyTraffic', 'visitorToLeadRate', 'leadToMqlRate', 'mqlToSqlRate', 'sqlToDealRate', 'averageDealValue', 'salesCycleDays', 'showScenarioComparison', 'optimizationLiftPercent'],
 ];
 
-function getRowValues(row) {
-  const values = [...row.querySelectorAll(':scope > div > *')]
-    .map((cell) => cell.textContent?.trim())
-    .filter((value) => Boolean(value));
-
-  if (values.length) {
-    return values;
-  }
-
-  const nestedValues = [...row.querySelectorAll(':scope > div > div > *')]
-    .map((cell) => cell.textContent?.trim())
-    .filter((value) => Boolean(value));
-
-  if (nestedValues.length) {
-    return nestedValues;
-  }
-
-  const fallbackValue = row.textContent?.trim();
-  return fallbackValue ? [fallbackValue] : [];
-}
-
 function readBlockProperties(block) {
-  const rows = [...block.querySelectorAll(':scope > div')];
-
-  return GROUPED_FIELD_KEYS.reduce((acc, keys, rowIndex) => {
-    const row = rows[rowIndex];
-    if (!row) {
-      return acc;
-    }
-
-    const rowValues = getRowValues(row);
-
-    keys.forEach((key, valueIndex) => {
-      const value = rowValues[valueIndex];
-      if (value) {
-        acc[key] = value;
-      }
-    });
-
-    return acc;
-  }, {});
+  return readGroupedBlockProperties(block, GROUPED_FIELD_KEYS);
 }
 
 function toPositiveNumber(value) {

@@ -1,3 +1,5 @@
+import readGroupedBlockProperties from '../utils/grouped-block-config.js';
+
 const DEFAULT_CHANNELS = [
   {
     id: 'paid-search',
@@ -30,50 +32,8 @@ const GROUPED_FIELD_KEYS = [
   ['channel3Name', 'channel3Budget', 'channel3Cpl', 'channel3ConversionRate'], // channel3 field group
 ];
 
-function getRowValues(row) {
-  const values = [...row.querySelectorAll(':scope > div > *')]
-    .map((cell) => cell.textContent?.trim())
-    .filter((value) => Boolean(value));
-
-  if (values.length) {
-    return values;
-  }
-
-  const nestedValues = [...row.querySelectorAll(':scope > div > div > *')]
-    .map((cell) => cell.textContent?.trim())
-    .filter((value) => Boolean(value));
-
-  if (nestedValues.length) {
-    return nestedValues;
-  }
-
-  const fallbackValue = row.textContent?.trim();
-  return fallbackValue ? [fallbackValue] : [];
-}
-
-function readGroupedProperties(rows) {
-  return GROUPED_FIELD_KEYS.reduce((acc, keys, rowIndex) => {
-    const row = rows[rowIndex];
-    if (!row) {
-      return acc;
-    }
-
-    const values = getRowValues(row);
-
-    keys.forEach((key, valueIndex) => {
-      const value = values[valueIndex];
-      if (value) {
-        acc[key] = value;
-      }
-    });
-
-    return acc;
-  }, {});
-}
-
 function readBlockProperties(block) {
-  const rows = [...block.querySelectorAll(':scope > div')];
-  return readGroupedProperties(rows);
+  return readGroupedBlockProperties(block, GROUPED_FIELD_KEYS);
 }
 
 function buildChannels(config) {
@@ -104,8 +64,6 @@ function buildChannels(config) {
 }
 
 export default async function decorate(block) {
-  console.log('ogBlock:', block.cloneNode(true));
-  console.log('block.outerHTML:', block.outerHTML);
   const config = readBlockProperties(block);
 
   const moduleUrl = new URL('../../react/dist/budget-planner/budget-planner.js', import.meta.url).toString();
