@@ -1,5 +1,6 @@
 import { BudgetPlanner } from './blocks/budget-planner/BudgetPlanner';
 import './App.css';
+import {LeadFunnel} from "./blocks/lead-funnel/LeadFunnel.tsx";
 
 const DEMO_CHANNELS = [
   {
@@ -34,6 +35,7 @@ function App() {
         It is a strong fit for React vs imperative DOM updates.
       </p>
       <BudgetPlanner initialChannels={DEMO_CHANNELS} averageDealValue={18000} />
+      <LeadFunnel monthlyTraffic={50000} visitorToLeadRate={2.8} leadToMqlRate={35} mqlToSqlRate={45} sqlToDealRate={22} averageDealValue={12000} salesCycleDays={45} showScenarioComparison={true} optimizationLiftPercent={20} />
     </main>
   );
 }

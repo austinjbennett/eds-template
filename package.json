@@ -7,6 +7,8 @@
     "react:dev": "cd react && npm run dev",
     "react:build": "cd react && npm run build",
     "react:preview": "cd react && npm run preview",
+    "react:storybook": "cd react && npm run storybook",
+    "react:storybook:build": "cd react && npm run storybook:build",
     "lint:js": "eslint . --ext .json,.js,.mjs",
     "lint:css": "stylelint \"blocks/**/*.css\" \"styles/*.css\"",
     "lint": "npm run lint:js && npm run lint:css",
