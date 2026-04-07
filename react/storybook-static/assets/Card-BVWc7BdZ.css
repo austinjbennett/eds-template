@@ -1,1 +1,0 @@
-article.reusable-card{flex-direction:column;gap:6px;display:flex}.reusable-card-title{color:var(--muted);margin:0;font-size:.85rem}.reusable-card-value{margin:0;font-size:1rem;font-weight:700}.reusable-card.is-positive .reusable-card-value{color:#0f766e}.reusable-card.is-negative .reusable-card-value{color:#b91c1c}
