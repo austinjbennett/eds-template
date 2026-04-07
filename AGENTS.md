@@ -21,6 +21,7 @@
   - `cd react && npm install`
 - Main workflows:
   - `npm run react:dev` (Vite dev in `react/`)
+  - `npm run react:storybook` (component lab)
   - `npm run lint:js`
   - `npm run lint:css`
   - `npm run build:json`
