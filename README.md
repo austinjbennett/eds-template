@@ -93,30 +93,6 @@ npm run build:json
 npm run react:build
 ```
 
-## Storybook (React Component Dev Loop)
-
-Storybook is used for fast component and block-UI development without rebuilding EDS production bundles on every edit.
-
-Run Storybook:
-
-```bash
-npm run react:storybook
-```
-
-Build Storybook (CI/docs artifact check):
-
-```bash
-npm run react:storybook:build
-```
-
-Notes:
-
-- Story files are colocated as `*.stories.tsx` under `react/src/`.
-- Component CSS auto-loads via component imports; no manual CSS includes needed in Storybook.
-- Global Storybook styles load from:
-  - `react/src/index.css`
-- Storybook is a component lab; always validate final behavior in EDS block pages before merging.
-
 Recommended pre-merge validation:
 
 ```bash
