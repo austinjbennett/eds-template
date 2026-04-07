@@ -19,6 +19,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    cssCodeSplit: true,
     lib: {
       entry: blockEntries,
       formats: ['es'],
@@ -27,6 +28,20 @@ export default defineConfig({
       output: {
         entryFileNames: '[name].js',
         chunkFileNames: 'shared/[name].js',
+        assetFileNames: (assetInfo) => {
+          const originalName = assetInfo.names?.[0] ?? assetInfo.name ?? '';
+          if (originalName.endsWith('.css')) {
+            if (originalName.includes('budget-planner')) {
+              return 'budget-planner/budget-planner.css';
+            }
+            if (originalName.includes('lead-funnel')) {
+              return 'lead-funnel/lead-funnel.css';
+            }
+            return 'shared/[name][extname]';
+          }
+
+          return 'assets/[name][extname]';
+        },
       },
     },
   },

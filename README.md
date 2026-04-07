@@ -1,42 +1,156 @@
-# Your Project's Title...
-Your project's description...
+# EDS with React
+
+This repository is an Adobe Edge Delivery Services (EDS) project that combines:
+
+- standard EDS blocks under `blocks/`
+- React-powered interactive blocks under `react/src/blocks/`
+- Universal Editor (UE) component models under `blocks/*/_*.json` and `models/`
+
+Use this guide to understand how code is organized and how to safely add new blocks/components.
+
+Copilot guidance for this repo lives in `.github/copilot-instructions.md`.
+AI Agent guidance for this repo lives in `AGENTS.md`.
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
 
-## Documentation
+- Preview: `https://main--eds-react--rightpoint.aem.page/`
+- Live: `https://main--eds-react--rightpoint.aem.live/`
 
-Before using the aem-boilerplate, we recommand you to go through the documentation on [www.aem.live](https://www.aem.live/docs/) and [experienceleague.adobe.com](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/authoring), more specifically:
-1. [Getting Started](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/edge-dev-getting-started), [Creating Blocks](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/create-block), [Content Modelling](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/content-modeling)
-2. [The Anatomy of a Project](https://www.aem.live/developer/anatomy-of-a-project)
-3. [Web Performance](https://www.aem.live/developer/keeping-it-100)
-4. [Markup, Sections, Blocks, and Auto Blocking](https://www.aem.live/developer/markup-sections-blocks)
+## Repository Structure
 
-Furthremore, we encourage you to watch the recordings of any of our previous presentations or sessions:
-- [Getting started with AEM Authoring and Edge Delivery Services](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/gems2024/aem-authoring-and-edge-delivery)
+```text
+blocks/
+  <block-name>/
+	<block-name>.js        # EDS block loader/decorator
+	<block-name>.css       # EDS block styles
+	_<block-name>.json     # UE model definition for the block
+  utils/
+	grouped-block-config.js # Shared grouped-row parsing helpers
 
-## Prerequisites
+react/
+  src/
+	blocks/
+	  <block-name>/
+		index.tsx          # React mount/unmount entry for Vite
+		<Block>.tsx        # React UI implementation
+    <block-name>.css   # Block-scoped styles
+	components/
+    <component-name>/
+      <Component>.tsx    # Component implementation
+      <Component>.css    # Component styles
+      index.tsx          # Export for clean imports
+  dist/
+	<block-name>/<block-name>.js
+  <block-name>/<block-name>.css
+	shared/*.js            # Shared runtime/chunks (must be committed)
 
-- nodejs 18.3.x or newer
-- AEM Cloud Service release 2024.8 or newer (>= `17465`)
+models/
+  _component-definition.json
+  _component-models.json
+  _component-filters.json
+  _section.json
 
-## Installation
-
-```sh
-npm i
+component-definition.json  # generated from models/
+component-models.json      # generated from models/
+component-filters.json     # generated from models/
 ```
 
-## Linting
+## How EDS + React Works Here
 
-```sh
-npm run lint
+1. EDS executes `blocks/<name>/<name>.js` when a block is found on the page.
+2. That loader parses authored block rows and dynamically imports the React bundle from `react/dist` using:
+   - `new URL(..., import.meta.url)`
+   - dynamic `import()`
+3. The React entry (`react/src/blocks/<name>/index.tsx`) exports `mount()`/`unmount()` and renders into the block root.
+4. Shared React chunks are emitted to `react/dist/shared/`.
+
+## Universal Editor Modeling Notes
+
+- UE grouping is used to keep logical cell counts manageable for `xwalk/max-cells`.
+- Block HTML does not include model key names; parsing depends on row and value order.
+- Grouped parsing is centralized in `blocks/utils/grouped-block-config.js`.
+
+For grouped blocks:
+
+1. Define `GROUPED_FIELD_KEYS` in the block script.
+2. Keep array order aligned to authored UE row order.
+3. Parse with `readGroupedBlockProperties(block, GROUPED_FIELD_KEYS)`.
+
+## Setup
+
+```bash
+npm install
+cd react && pnpm install
 ```
 
-## Local development
+## Development Commands
 
-1. Create a new repository based on the `aem-boilerplate` template and add a mountpoint in the `fstab.yaml`
-1. Add the [AEM Code Sync GitHub App](https://github.com/apps/aem-code-sync) to the repository
-1. Install the [AEM CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/aem-cli`
-1. Start AEM Proxy: `aem up` (opens your browser at `http://localhost:3000`)
-1. Open the `{repo}` directory in your favorite IDE and start coding :)
+```bash
+npm run react:dev
+npm run lint:js
+npm run lint:css
+npm run build:json
+npm run react:build
+```
+
+## Storybook (React Component Dev Loop)
+
+Storybook is used for fast component and block-UI development without rebuilding EDS production bundles on every edit.
+
+Run Storybook:
+
+```bash
+npm run react:storybook
+```
+
+Build Storybook (CI/docs artifact check):
+
+```bash
+npm run react:storybook:build
+```
+
+Notes:
+
+- Story files are colocated as `*.stories.tsx` under `react/src/`.
+- Component CSS auto-loads via component imports; no manual CSS includes needed in Storybook.
+- Global Storybook styles load from:
+  - `react/src/index.css`
+- Storybook is a component lab; always validate final behavior in EDS block pages before merging.
+
+Recommended pre-merge validation:
+
+```bash
+npm run lint:js
+npm run lint:css
+npm run build:json
+npm run react:build
+```
+
+## Adding a New React Block
+
+1. Create EDS files:
+   - `blocks/<name>/<name>.js`
+   - `blocks/<name>/<name>.css`
+2. Create UE model:
+   - `blocks/<name>/_<name>.json`
+3. Create React files:
+   - `react/src/blocks/<name>/index.tsx`
+   - `react/src/blocks/<name>/<Component>.tsx`
+4. Register entry in `react/vite.config.ts` (`blockEntries`).
+5. Add `<name>` to `models/_section.json` filters.
+6. Regenerate component JSON:
+   - `npm run build:json` | `pnpm build:json`
+7. Build React output:
+   - `npm run react:build` | `pnpm react:build`
+8. Commit source + generated files together:
+   - `blocks/...`
+   - `react/src/...`
+   - `react/dist/...`
+   - `component-*.json`
+
+## Helpful Docs
+
+- [AEM Live Docs](https://www.aem.live/docs/)
+- [Anatomy of an EDS Project](https://www.aem.live/developer/anatomy-of-a-project)
+- [Creating Blocks](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/create-block)
+- [Content Modeling](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/content-modeling)

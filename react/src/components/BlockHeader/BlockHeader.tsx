@@ -1,3 +1,5 @@
+import './BlockHeader.css';
+
 type BlockHeaderProps = {
   title: string;
   description?: string;

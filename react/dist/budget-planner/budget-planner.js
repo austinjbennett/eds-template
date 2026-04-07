@@ -1,5 +1,5 @@
 import { a as e, i as t, n, r, t as i } from "../shared/Card.js";
-//#region src/components/BudgetChannelCard.tsx
+//#region src/components/BudgetChannelCard/BudgetChannelCard.tsx
 var a = t(), o = e(), s = r();
 function c(e) {
 	return new Intl.NumberFormat("en-US", {

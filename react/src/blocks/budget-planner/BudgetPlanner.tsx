@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import BlockHeader from '../../components/BlockHeader';
 import Card from '../../components/Card';
 import BudgetChannelCard from '../../components/BudgetChannelCard';
+import './budget-planner.css';
 
 export type Channel = {
   id: string;

@@ -8018,7 +8018,7 @@ function f({ title: e, description: t, className: n = "block-header" }) {
 	});
 }
 //#endregion
-//#region src/components/Card.tsx
+//#region src/components/Card/Card.tsx
 function p({ title: e, value: t, tone: n = "default" }) {
 	return /* @__PURE__ */ (0, d.jsxs)("article", {
 		className: `reusable-card ${n === "default" ? "" : `is-${n}`}`.trim(),

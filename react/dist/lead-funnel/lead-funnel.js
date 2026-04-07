@@ -1,5 +1,5 @@
 import { a as e, i as t, n, r, t as i } from "../shared/Card.js";
-//#region src/blocks/lead-funnel/LeadFunnel.tsx
+//#region src/blocks/lead-funnel/lead-funnel.css
 var a = t(), o = e(), s = r();
 function c(e, t, n) {
 	return Math.max(t, Math.min(n, e));

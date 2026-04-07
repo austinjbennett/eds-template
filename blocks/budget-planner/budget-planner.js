@@ -36,6 +36,18 @@ function readBlockProperties(block) {
   return readGroupedBlockProperties(block, GROUPED_FIELD_KEYS);
 }
 
+function ensureStylesheet(url) {
+  if (document.head.querySelector(`link[data-react-block-style="${url}"]`)) {
+    return;
+  }
+
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  link.dataset.reactBlockStyle = url;
+  document.head.append(link);
+}
+
 function buildChannels(config) {
   return DEFAULT_CHANNELS.map((fallback, index) => {
     const slot = index + 1;
@@ -65,6 +77,8 @@ function buildChannels(config) {
 
 export default async function decorate(block) {
   const config = readBlockProperties(block);
+  const cssUrl = new URL('../../react/dist/budget-planner/budget-planner.css', import.meta.url).toString();
+  ensureStylesheet(cssUrl);
 
   const moduleUrl = new URL('../../react/dist/budget-planner/budget-planner.js', import.meta.url).toString();
   const module = await import(/* @vite-ignore */ moduleUrl);

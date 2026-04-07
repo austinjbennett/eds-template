@@ -1,0 +1,10 @@
+header.block-header h2 {
+margin: 0;
+font-size: 1.5rem;
+}
+
+header.block-header p {
+margin: 8px 0 0;
+color: var(--muted);
+font-size: 0.95rem;
+}

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import './Card.css';
 
 type CardProps = {
   title: string;
@@ -16,3 +17,4 @@ export default function Card({ title, value, tone = 'default' }: CardProps) {
     </article>
   );
 }
+
