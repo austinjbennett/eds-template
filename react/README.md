@@ -25,8 +25,8 @@ This workspace builds React-powered UI modules that can be mounted by Edge Deliv
 ## Local development
 
 ```zsh
-cd /Users/AustinBennett/Sites/test/eds-template/react
-pnpm dev
+cd react
+npm run dev
 ```
 
 The dev app (`src/main.tsx`) renders the same component as a playground.
@@ -34,8 +34,8 @@ The dev app (`src/main.tsx`) renders the same component as a playground.
 ## Build for EDS usage
 
 ```zsh
-cd /Users/AustinBennett/Sites/test/eds-template/react
-pnpm build
+cd react
+npm run build
 ```
 
 Then EDS block code can load the built module from `react/dist`.

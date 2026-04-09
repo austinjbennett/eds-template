@@ -1,4 +1,5 @@
 import readGroupedBlockProperties from '../utils/grouped-block-config.js';
+import { isReactDevMode, resolveReactModuleUrl } from '../utils/react-dev-mode.js';
 
 const DEFAULT_CHANNELS = [
   {
@@ -77,10 +78,16 @@ function buildChannels(config) {
 
 export default async function decorate(block) {
   const config = readBlockProperties(block);
-  const cssUrl = new URL('../../react/dist/budget-planner/budget-planner.css', import.meta.url).toString();
-  ensureStylesheet(cssUrl);
 
-  const moduleUrl = new URL('../../react/dist/budget-planner/budget-planner.js', import.meta.url).toString();
+  if (!isReactDevMode()) {
+    const cssUrl = new URL('../../react/dist/budget-planner/budget-planner.css', import.meta.url).toString();
+    ensureStylesheet(cssUrl);
+  }
+
+  const moduleUrl = resolveReactModuleUrl(
+    new URL('../../react/dist/budget-planner/budget-planner.js', import.meta.url).toString(),
+    '/src/blocks/budget-planner/index.tsx',
+  );
   const module = await import(/* @vite-ignore */ moduleUrl);
 
   const averageDealValueRaw = config.averageDealValue ?? block.dataset.averageDealValue;

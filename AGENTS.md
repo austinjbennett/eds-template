@@ -1,4 +1,4 @@
-# AGENTS Guide for `eds-template`
+# AGENTS Guide for `eds-react`
 
 ## Big Picture
 - This is an Adobe Edge Delivery Services (EDS) site with a hybrid block model:
@@ -18,7 +18,7 @@
 ## Build/Dev Workflows
 - Install:
   - `npm install`
-  - `cd react && pnpm install`
+  - `cd react && npm install`
 - Main workflows:
   - `npm run react:dev` (Vite dev in `react/`)
   - `npm run lint:js`

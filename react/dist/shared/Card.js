@@ -483,7 +483,7 @@ var e = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports), t
 		return S.H.useSyncExternalStore(e, t, n);
 	}, e.useTransition = function() {
 		return S.H.useTransition();
-	}, e.version = "19.2.4";
+	}, e.version = "19.2.5";
 })), i = /* @__PURE__ */ e(((e, t) => {
 	t.exports = r();
 })), a = /* @__PURE__ */ e(((e) => {
@@ -601,7 +601,7 @@ var e = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports), t
 		return c.H.useFormState(e, t, n);
 	}, e.useFormStatus = function() {
 		return c.H.useHostTransitionStatus();
-	}, e.version = "19.2.4";
+	}, e.version = "19.2.5";
 })), o = /* @__PURE__ */ e(((e, t) => {
 	function n() {
 		if (!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ > "u" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE != "function")) try {
@@ -7960,7 +7960,7 @@ var e = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports), t
 		}
 	};
 	var Lp = r.version;
-	if (Lp !== "19.2.4") throw Error(s(527, Lp, "19.2.4"));
+	if (Lp !== "19.2.5") throw Error(s(527, Lp, "19.2.5"));
 	T.findDOMNode = function(e) {
 		var t = e._reactInternals;
 		if (t === void 0) throw typeof e.render == "function" ? Error(s(188)) : (e = Object.keys(e).join(","), Error(s(268, e)));
@@ -7968,10 +7968,10 @@ var e = (e, t) => () => (t || e((t = { exports: {} }).exports, t), t.exports), t
 	};
 	var Rp = {
 		bundleType: 0,
-		version: "19.2.4",
+		version: "19.2.5",
 		rendererPackageName: "react-dom",
 		currentDispatcherRef: w,
-		reconcilerVersion: "19.2.4"
+		reconcilerVersion: "19.2.5"
 	};
 	if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ < "u") {
 		var zp = __REACT_DEVTOOLS_GLOBAL_HOOK__;

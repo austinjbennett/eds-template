@@ -1,6 +1,6 @@
 import { a as e, i as t, n, r, t as i } from "../shared/Card.js";
 //#region src/blocks/lead-funnel/lead-funnel.css
-var a = t(), o = e(), s = r();
+var a = e(), o = t(), s = r();
 function c(e, t, n) {
 	return Math.max(t, Math.min(n, e));
 }
@@ -24,8 +24,8 @@ function d(e, t, n, r, i, a, o) {
 		revenue: u * a
 	};
 }
-function f({ title: e = "Lead Funnel Simulator", description: t = "Model conversion rates and compare optimization scenarios in real time.", monthlyTraffic: r, visitorToLeadRate: a, leadToMqlRate: f, mqlToSqlRate: p, sqlToDealRate: m, averageDealValue: h, salesCycleDays: g, showScenarioComparison: _, optimizationLiftPercent: v }) {
-	let [y, b] = (0, o.useState)("month"), [x, S] = (0, o.useState)(r), [C, w] = (0, o.useState)(a), [T, E] = (0, o.useState)(f), [D, O] = (0, o.useState)(p), [k, A] = (0, o.useState)(m), [j, M] = (0, o.useState)(h), [N, P] = (0, o.useState)(v), [F, I] = (0, o.useState)(_), L = y === "month" ? 1 : 3, R = (0, o.useMemo)(() => d(x, C, T, D, k, j, L), [
+function f({ title: e = "Lead Funnel Simulator", description: t = "Model conversion rates and compare optimization scenarios in real time.", monthlyTraffic: r, visitorToLeadRate: o, leadToMqlRate: f, mqlToSqlRate: p, sqlToDealRate: m, averageDealValue: h, salesCycleDays: g, showScenarioComparison: _, optimizationLiftPercent: v }) {
+	let [y, b] = (0, a.useState)("month"), [x, S] = (0, a.useState)(r), [C, w] = (0, a.useState)(o), [T, E] = (0, a.useState)(f), [D, O] = (0, a.useState)(p), [k, A] = (0, a.useState)(m), [j, M] = (0, a.useState)(h), [N, P] = (0, a.useState)(v), [F, I] = (0, a.useState)(_), L = y === "month" ? 1 : 3, R = (0, a.useMemo)(() => d(x, C, T, D, k, j, L), [
 		x,
 		C,
 		T,
@@ -33,7 +33,7 @@ function f({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 		k,
 		j,
 		L
-	]), z = (0, o.useMemo)(() => {
+	]), z = (0, a.useMemo)(() => {
 		if (!F) return null;
 		let e = 1 + N / 100, t = d(x, c(C * e, 0, 1), c(T * e, 0, 1), c(D * e, 0, 1), c(k * e, 0, 1), j, L);
 		return {
@@ -270,7 +270,7 @@ function f({ title: e = "Lead Funnel Simulator", description: t = "Model convers
 //#region src/blocks/lead-funnel/index.tsx
 var p = /* @__PURE__ */ new WeakMap();
 function m(e, t = {}) {
-	let n = p.get(e) ?? (0, a.createRoot)(e);
+	let n = p.get(e) ?? (0, o.createRoot)(e);
 	p.has(e) || p.set(e, n), n.render(/* @__PURE__ */ (0, s.jsx)(f, {
 		title: t.title ?? "Lead Funnel Simulator",
 		description: t.description ?? "Model conversion rates and compare optimization scenarios in real time.",

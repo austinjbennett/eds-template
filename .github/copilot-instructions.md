@@ -1,4 +1,4 @@
-# Copilot Instructions for `eds-template`
+# Copilot Instructions for `eds-react`
 
 This repository is an Adobe Edge Delivery Services (EDS) project with React used for interactive block experiences. Follow these instructions when proposing or making changes.
 

@@ -1,4 +1,5 @@
 import readGroupedBlockProperties from '../utils/grouped-block-config.js';
+import { isReactDevMode, resolveReactModuleUrl } from '../utils/react-dev-mode.js';
 
 const GROUPED_FIELD_KEYS = [
   ['title', 'description'],
@@ -55,10 +56,16 @@ function toBoolean(value) {
 
 export default async function decorate(block) {
   const config = readBlockProperties(block);
-  const cssUrl = new URL('../../react/dist/lead-funnel/lead-funnel.css', import.meta.url).toString();
-  ensureStylesheet(cssUrl);
 
-  const moduleUrl = new URL('../../react/dist/lead-funnel/lead-funnel.js', import.meta.url).toString();
+  if (!isReactDevMode()) {
+    const cssUrl = new URL('../../react/dist/lead-funnel/lead-funnel.css', import.meta.url).toString();
+    ensureStylesheet(cssUrl);
+  }
+
+  const moduleUrl = resolveReactModuleUrl(
+    new URL('../../react/dist/lead-funnel/lead-funnel.js', import.meta.url).toString(),
+    '/src/blocks/lead-funnel/index.tsx',
+  );
   const module = await import(/* @vite-ignore */ moduleUrl);
 
   module.mount(block, {

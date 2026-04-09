@@ -13,6 +13,11 @@ const blockEntries = {
 export default defineConfig({
   plugins: [react()],
   base: './',
+  // Allow the AEM dev server (localhost:3000) to import modules from this
+  // Vite dev server (localhost:5173) when using ?react-dev mode.
+  server: {
+    cors: true,
+  },
   define: {
     'process.env.NODE_ENV': JSON.stringify('production'),
   },

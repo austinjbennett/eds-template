@@ -80,7 +80,7 @@ For grouped blocks:
 
 ```bash
 npm install
-cd react && pnpm install
+cd react && npm install
 ```
 
 ## Development Commands
@@ -115,9 +115,9 @@ npm run react:build
 4. Register entry in `react/vite.config.ts` (`blockEntries`).
 5. Add `<name>` to `models/_section.json` filters.
 6. Regenerate component JSON:
-   - `npm run build:json` | `pnpm build:json`
+   - `npm run build:json`
 7. Build React output:
-   - `npm run react:build` | `pnpm react:build`
+   - `npm run react:build`
 8. Commit source + generated files together:
    - `blocks/...`
    - `react/src/...`

@@ -1,6 +1,6 @@
 import { a as e, i as t, n, r, t as i } from "../shared/Card.js";
 //#region src/components/BudgetChannelCard/BudgetChannelCard.tsx
-var a = t(), o = e(), s = r();
+var a = e(), o = t(), s = r();
 function c(e) {
 	return new Intl.NumberFormat("en-US", {
 		style: "currency",
@@ -92,8 +92,8 @@ function f(e, t) {
 		projectedRoi: n === 0 ? 0 : (a - n) / n * 100
 	};
 }
-function p({ title: e = "Budget Planner", description: t = "Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time.", initialChannels: r, averageDealValue: a }) {
-	let [c, p] = (0, o.useState)(r), [m, h] = (0, o.useState)(a), g = (0, o.useMemo)(() => f(c, m), [c, m]), _ = (e, t) => {
+function p({ title: e = "Budget Planner", description: t = "Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time.", initialChannels: r, averageDealValue: o }) {
+	let [c, p] = (0, a.useState)(r), [m, h] = (0, a.useState)(o), g = (0, a.useMemo)(() => f(c, m), [c, m]), _ = (e, t) => {
 		p((n) => n.map((n) => n.id === e ? {
 			...n,
 			...t
@@ -187,7 +187,7 @@ var m = /* @__PURE__ */ new WeakMap(), h = [
 	}
 ];
 function g(e, t = {}) {
-	let n = m.get(e) ?? (0, a.createRoot)(e);
+	let n = m.get(e) ?? (0, o.createRoot)(e);
 	m.has(e) || m.set(e, n), n.render(/* @__PURE__ */ (0, s.jsx)(p, {
 		title: t.title ?? "Budget Planner",
 		description: t.description ?? "Adjust channel spend and assumptions to forecast leads, pipeline, and ROI in real time.",
